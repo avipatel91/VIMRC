@@ -30,14 +30,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_mode_map = { 'passive_filetypes': ['javascript', 'html'] }
-"" let b:syntastic_mode="passive"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers=['jshint']
+"" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_mode_map = { 'passive_filetypes': ['javascript', 'html'] }
+let b:syntastic_mode="passive"
 
 "" leader key
 let mapleader=","
@@ -53,3 +54,20 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=070
 
 " NERDTree, Use F3 for toggle NERDTree
 nmap <silent> <F3> :NERDTreeToggle<CR>
+
+
+"Increase depth for ctrl-p
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+
+
+" view and go to buffers
+:nnoremap <C-X> :buffers<CR>:buffer<Space>
+
+" highlighting
+set hls
+
+" bash like autocompletion
+set wildmode=longest,list,full
+set wildmenu
+
